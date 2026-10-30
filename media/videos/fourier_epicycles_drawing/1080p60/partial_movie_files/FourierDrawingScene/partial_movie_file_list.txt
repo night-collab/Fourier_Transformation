@@ -1,4 +1,0 @@
-# This file is used internally by FFMPEG.
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/1080p60/partial_movie_files/FourierDrawingScene/1706427208_986540858_465505301.mp4'
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/1080p60/partial_movie_files/FourierDrawingScene/3224167301_105927007_444586530.mp4'
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/1080p60/partial_movie_files/FourierDrawingScene/2294436969_593027521_3325513613.mp4'
