@@ -20,7 +20,7 @@ from manim import *
 # ==========================================
 CONFIG = {
     # 待拟合的图像路径（可填入保存的 "abin.jpg" 或 "dongfang.png"）
-    "image_path": "qianming.jpg",
+    "image_path": "naiwa_black.png",
     
     # 提取模式: "auto" (自动识别连笔线稿或实心剪影) | "line_art" (连笔签名/空心线稿) | "silhouette" (实心剪影)
     "extract_mode": "auto",
@@ -29,10 +29,10 @@ CONFIG = {
     "color_tolerance": 26,
     
     # 圆盘（向量）总数量：连笔签名建议 220 ~ 300 个，细节极其丝滑
-    "num_vectors": 250,
+    "num_vectors": 50,
     
     # 动画完整绘制一周的时长（秒）
-    "draw_duration": 18.0,
+    "draw_duration": 10.0,
     
     # 轮廓等弧长重采样点数（设为 1500 点，充分保留连笔转折细节）
     "num_samples": 1500,
@@ -41,7 +41,7 @@ CONFIG = {
     "path_subsamples": 2400,
     
     # 是否显示半透明目标参考轮廓底图
-    "show_target_contour": True,
+    "show_target_contour": False,
     
     # 画面布局与缩放比例
     "target_height": 5.2,          # 轮廓在 Manim 画面中的最大尺寸
@@ -52,7 +52,7 @@ CONFIG = {
     "display_width": 4.6,          # 画中画窗口宽度
     "display_height": 3.0,         # 画中画窗口高度
     "box_color": TEAL_C,           # 3Blue1Brown 标志性青蓝色取景框
-    "path_color": "#22d3ee",       # 流光青色 (也可改为 YELLOW_C)
+    "path_color": "YELLOW_C",       # 流光青色 (也可改为 YELLOW_C)
 }
 
 
