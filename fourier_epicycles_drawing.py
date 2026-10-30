@@ -3,7 +3,8 @@
 支持：
 1. 黑底白线连笔签名图（如生成的“阿斌”一笔签）：自动通过『最小跨度无缝桥接算法』串联内外回环，零跳线完美还原书法笔画；
 2. 人物剪影图（如 Bad Apple 博丽灵梦）：自动通过『智能背景泛洪剥离 (smartBg)』提取纯净外轮廓；
-3. 2400 点超采样丝滑轨迹绘制，彻底消除低帧率 (-pql 15fps) 下的折线撕裂感。
+3. 2400 点超采样丝滑轨迹绘制，彻底消除低帧率 (-pql 15fps) 下的折线撕裂感；
+4. 支持在顶部 CONFIG 中直接调节轨迹线宽 (path_stroke_width)，加粗后可将签名直接绘制为饱满的实心笔画效果。
 
 运行方式：
   manim -pql fourier_epicycles_drawing.py FourierDrawingScene      # 低分辨率快速预览
@@ -19,8 +20,8 @@ from manim import *
 # 1. 核心参数配置
 # ==========================================
 CONFIG = {
-    # 待拟合的图像路径（可填入保存的 "abin.jpg" 或 "dongfang.png"）
-    "image_path": "naiwa_black.png",
+    # 待拟合的图像路径（可填入 "qianming.jpg"、"abin.jpg" 或 "naiwa_black.png"）
+    "image_path": "qianming.jpg",
     
     # 提取模式: "auto" (自动识别连笔线稿或实心剪影) | "line_art" (连笔签名/空心线稿) | "silhouette" (实心剪影)
     "extract_mode": "auto",
@@ -29,10 +30,10 @@ CONFIG = {
     "color_tolerance": 26,
     
     # 圆盘（向量）总数量：连笔签名建议 220 ~ 300 个，细节极其丝滑
-    "num_vectors": 50,
+    "num_vectors": 150,
     
     # 动画完整绘制一周的时长（秒）
-    "draw_duration": 10.0,
+    "draw_duration": 12.0,
     
     # 轮廓等弧长重采样点数（设为 1500 点，充分保留连笔转折细节）
     "num_samples": 1500,
@@ -52,7 +53,10 @@ CONFIG = {
     "display_width": 4.6,          # 画中画窗口宽度
     "display_height": 3.0,         # 画中画窗口高度
     "box_color": TEAL_C,           # 3Blue1Brown 标志性青蓝色取景框
-    "path_color": "YELLOW_C",       # 流光青色 (也可改为 YELLOW_C)
+    
+    # 轨迹线条样式配置
+    "path_color": YELLOW_C,        # 轨迹线颜色（如 YELLOW_C 或 "#22d3ee"）
+    "path_stroke_width": 9.0,      # 轨迹线宽：2.5 为细线描边；设为 6.5 ~ 9.0 可直接涂满形成饱满实心签名笔画！
 }
 
 
@@ -318,13 +322,13 @@ class FourierDrawingScene(ZoomedScene):
             current_z = np.sum(coeffs * np.exp(1j * 2 * np.pi * freqs * t))
             return np.array([current_z.real, current_z.imag, 0.0]) + center_offset
 
-        pen_tip = Dot(radius=0.035, color=WHITE, fill_opacity=1.0)
+        pen_tip = Dot(radius=0.04, color=WHITE, fill_opacity=1.0)
         pen_tip.add_updater(lambda mob: mob.move_to(get_current_pen_tip_pos()))
 
-        # 5. 超采样丝滑轨迹线
+        # 5. 超采样丝滑轨迹线（线宽由 CONFIG["path_stroke_width"] 控制）
         drawn_path = VMobject(
             stroke_color=CONFIG["path_color"],
-            stroke_width=2.6,
+            stroke_width=CONFIG["path_stroke_width"],
         )
 
         def update_drawn_path(mob):

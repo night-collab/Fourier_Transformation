@@ -1,4 +1,4 @@
 # This file is used internally by FFMPEG.
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/1143338432_986540858_465505301.mp4'
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/3358204953_105927007_444586530.mp4'
-file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/1063523801_593027521_3325513613.mp4'
+file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/2547299362_986540858_3437789306.mp4'
+file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/1530524372_3131092645_563734169.mp4'
+file 'file:D:/code/Fourier/media/videos/fourier_epicycles_drawing/480p15/partial_movie_files/FourierDrawingScene/2625933575_593027521_2864742720.mp4'

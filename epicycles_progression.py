@@ -20,10 +20,10 @@ from manim import *
 # ==========================================
 CONFIG = {
     # 每一幕完整绘制一周的时长（秒）
-    "stage_draw_duration": 8.0,
+    "stage_draw_duration": 5.0,
     
     # 幕与幕之间平滑变形过渡的时长（秒）
-    "transition_duration": 1.4,
+    "transition_duration": 0.9,
     
     # 轨迹超采样细分点数（保证在任何帧率下线条都极致丝滑）
     "path_subsamples": 2000,
@@ -34,7 +34,7 @@ CONFIG = {
     "display_width": 4.6,
     "display_height": 3.0,
     "box_color": TEAL_C,           # 青蓝色取景框
-    "path_color": "#22d3ee",       # 流光青色轨迹
+    "path_color": "YELLOW_C",       # 流光青色轨迹
 }
 
 # 定义 4 幕圆盘组合：每一幕由若干个 (半径 r, 转速 k, 初始相位 phi) 组成
